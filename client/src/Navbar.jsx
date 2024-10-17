@@ -2,11 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar(prop) {
 	const history = useNavigate();
-	// const location = useLocation();
+
 	function logout() {
 		history("/");
 		prop.setLoggedIn(false);
 	}
+
 	return (
 		<nav className="bg-zinc-900 w-full h-14 flex justify-between text-white items-center px-8 text-lg font-semibold">
 			{prop.loggedIn ? (

@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const userModel = require("./models/User");
 const postModel = require("./models/Post");
 const bcrypt = require("bcrypt");
-// const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 
 app.use(cors());
@@ -16,11 +15,9 @@ app.use(cookieParser());
 mongoose.connect("mongodb://127.0.0.1:27017/blog");
 
 const salt = bcrypt.genSaltSync(10);
-// const secret = "dsaflbsafghbcxabhuagdh636498qwy";
 
 app.get("/", async (req, res) => {
 	const posts = await postModel.find();
-	// console.log(posts);
 	res.json(posts);
 });
 
@@ -39,7 +36,6 @@ app.post("/login", cors(), async (req, res) => {
 	if (found) {
 		const result = bcrypt.compareSync(password, found.password);
 		if (result) {
-			// let token = jwt.sign({ username, id: found._id }, secret);
 			res.json("ok");
 		} else {
 			res.json("notok");
@@ -56,7 +52,6 @@ app.post("/create", cors(), async (req, res) => {
 		title,
 		content,
 		user,
-		// time,
 	});
 	res.json(post);
 });

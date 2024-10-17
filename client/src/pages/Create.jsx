@@ -8,7 +8,6 @@ export default function Create(prop) {
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const history = useNavigate();
-	// const time = new Date().toLocaleDateString();
 
 	async function create(e) {
 		e.preventDefault();
@@ -19,7 +18,6 @@ export default function Create(prop) {
 					title,
 					content,
 					user,
-					// time,
 				})
 				.then(() => {
 					history("/");

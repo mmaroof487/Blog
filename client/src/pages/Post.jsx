@@ -1,10 +1,8 @@
 import axios from "axios";
 
 export default function Post(prop) {
-	const url = prop.url;
-	const title = prop.title;
-	const content = prop.content;
-	const user = prop.user;
+	const { url, title, content, user, time } = prop;
+
 	async function del() {
 		try {
 			await axios
@@ -19,6 +17,7 @@ export default function Post(prop) {
 			console.log(e);
 		}
 	}
+
 	return (
 		<div className="flex gap-6 mb-8  w-1/2 h-64">
 			<img className="w-1/3 object-cover" src={url} alt="" />
@@ -35,7 +34,7 @@ export default function Post(prop) {
 					</div>
 					<div>
 						<span className="font-bold text-green-300">{user}</span>
-						<time className="text-zinc-500"> {prop.time} </time>
+						<time className="text-zinc-500"> {time} </time>
 					</div>
 				</div>
 			</div>

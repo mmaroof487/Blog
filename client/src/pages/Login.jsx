@@ -6,6 +6,7 @@ export default function Login(prop) {
 	const [username, setUser] = useState("");
 	const [password, setPassword] = useState("");
 	let history = useNavigate();
+
 	async function login(e) {
 		e.preventDefault();
 		try {
